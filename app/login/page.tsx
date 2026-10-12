@@ -1,12 +1,13 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Mail, LockKeyhole, ArrowRight } from "lucide-react";
+import { Mail, LockKeyhole, ArrowRight, Eye, EyeOff } from "lucide-react";
 
 export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
 
   function login(e: React.FormEvent<HTMLFormElement>) {
@@ -80,13 +81,23 @@ export default function LoginPage() {
             <LockKeyhole size={20} className="text-gray-500" />
             <input
               id="password"
-              type="password"
+              type={showPassword ? "text" : "password"}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter demo password"
-              className="w-full outline-none"
-              autoComplete="off"
+              className="w-full min-w-0 outline-none"
+              autoComplete="current-password"
             />
+
+            <button
+              type="button"
+              onClick={() => setShowPassword((prev) => !prev)}
+              className="shrink-0 text-gray-500 hover:text-indigo-600"
+              aria-label={showPassword ? "Hide password" : "Show password"}
+              aria-pressed={showPassword}
+            >
+              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+            </button>
           </div>
           {error && (
             <p
