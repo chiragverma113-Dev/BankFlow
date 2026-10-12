@@ -1,0 +1,88 @@
+import type { Account, Transaction } from "@/types/bank";
+
+export const initialAccounts: Account[] = [
+  {
+    id: "a1",
+    name: "Daily Savings",
+    accountNumber: "XXXX-XXXX-4821",
+    accountType: "Savings",
+    balance: 125680.5,
+  },
+  {
+    id: "a2",
+    name: "Business Current",
+    accountNumber: "XXXX-XXXX-1934",
+    accountType: "Current",
+    balance: 75000,
+  },
+  {
+    id: "a3",
+    name: "Monthly Salary",
+    accountNumber: "XXXX-XXXX-7206",
+    accountType: "Salary",
+    balance: 45000,
+  },
+];
+
+export const initialTransactions: Transaction[] = [
+  {
+    id: "t1",
+    accountId: "a1",
+    description: "Supermart Groceries",
+    amount: 2499,
+    type: "debit",
+    status: "successful",
+    date: "2026-10-10",
+    referenceNumber: "BF1001",
+  },
+  {
+    id: "t2",
+    accountId: "a3",
+    description: "Monthly Salary",
+    amount: 45000,
+    type: "credit",
+    status: "successful",
+    date: "2026-10-09",
+    referenceNumber: "BF1002",
+  },
+  {
+    id: "t3",
+    accountId: "a1",
+    description: "Electricity Bill",
+    amount: 1800,
+    type: "debit",
+    status: "successful",
+    date: "2026-10-08",
+    referenceNumber: "BF1003",
+  },
+  {
+    id: "t4",
+    accountId: "a2",
+    description: "Client Payment",
+    amount: 8500,
+    type: "credit",
+    status: "pending",
+    date: "2026-10-07",
+    referenceNumber: "BF1004",
+  },
+  {
+    id: "t5",
+    accountId: "a1",
+    description: "Cafe Coffee",
+    amount: 450,
+    type: "debit",
+    status: "successful",
+    date: "2026-10-05",
+    referenceNumber: "BF1005",
+  },
+  {
+    id: "t6",
+    accountId: "a2",
+    description: "Office Supplies",
+    amount: 3200,
+    type: "debit",
+    status: "failed",
+    date: "2026-10-03",
+    referenceNumber: "BF1006",
+  },
+];
